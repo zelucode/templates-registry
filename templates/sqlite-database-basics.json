@@ -1,0 +1,11 @@
+{
+  "id": "sqlite-database-basics",
+  "name": "Database Basics (SQLite create/insert/query)",
+  "author": "Automation OS",
+  "description": "Creates a local SQLite table, seeds it with rows from a loop, queries it back with a parameterized WHERE clause, and writes a summary. Fully offline and safe to run repeatedly.",
+  "category": "Database",
+  "tags": ["Example", "Database", "Loop"],
+  "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/sqlite-database-basics.json",
+  "sha256": "821e582b185703c78cd1be68f74f94c72c9a2dab0ecafd887a02019c88d4f07f",
+  "verified": true
+}

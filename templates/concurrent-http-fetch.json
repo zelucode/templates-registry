@@ -1,0 +1,11 @@
+{
+  "id": "concurrent-http-fetch",
+  "name": "Concurrent HTTP Fetch (Loop node)",
+  "author": "Automation OS",
+  "description": "Demonstrates the Loop node's Concurrency field: fetches several public GitHub user profiles with up to 3 requests in flight at once instead of one at a time. Needs internet access.",
+  "category": "HTTP & APIs",
+  "tags": ["Example", "HTTP", "Loop", "API"],
+  "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/concurrent-http-fetch.json",
+  "sha256": "0bda21152f2c6b88c5f60568a579ae8ec91a998af99096a9d0ab6441041f5017",
+  "verified": true
+}

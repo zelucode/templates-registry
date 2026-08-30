@@ -1,0 +1,104 @@
+{
+  "version": 3,
+  "name": "Example: Database Basics (SQLite create/insert/query)",
+  "description": "Demonstrates the v8 Query Database / Execute Database Statement nodes: creates a local SQLite table, seeds it with rows from a loop, queries it back with a parameterized WHERE clause, and writes a summary. Fully offline and safe to Run repeatedly (drops/recreates the table each time). Switch the driver/connectionString fields to postgres/mysql to point at a real server instead -- the query/statement text (:name placeholders) stays identical across all three.",
+  "tags": ["Example", "Database", "Loop"],
+  "variables": {
+    "dbFile": "./pillar1_database_demo.db",
+    "outFile": "./pillar1_database_demo_output.txt",
+    "seedOrders": [
+      {"id": 1, "customer": "Acme Co", "status": "pending", "amount": 120.5},
+      {"id": 2, "customer": "Bluebird Ltd", "status": "shipped", "amount": 75.0},
+      {"id": 3, "customer": "Acme Co", "status": "pending", "amount": 42.25},
+      {"id": 4, "customer": "Crestline Inc", "status": "cancelled", "amount": 18.0},
+      {"id": 5, "customer": "Delta Traders", "status": "pending", "amount": 260.75}
+    ]
+  },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    {
+      "id": "n2",
+      "type": "database_execute",
+      "ref": "drop_table",
+      "params": {
+        "driver": "sqlite",
+        "connectionString": "{{ vars.dbFile }}",
+        "statement": "DROP TABLE IF EXISTS orders",
+        "queryParams": "{}"
+      }
+    },
+    {
+      "id": "n3",
+      "type": "database_execute",
+      "ref": "create_table",
+      "params": {
+        "driver": "sqlite",
+        "connectionString": "{{ vars.dbFile }}",
+        "statement": "CREATE TABLE orders (id INTEGER, customer TEXT, status TEXT, amount REAL)",
+        "queryParams": "{}"
+      }
+    },
+    {
+      "id": "n4",
+      "type": "loop",
+      "ref": "seed_loop",
+      "params": {
+        "loopType": "forEach",
+        "itemsExpr": "{{ vars.seedOrders }}"
+      }
+    },
+    {
+      "id": "n5",
+      "type": "database_execute",
+      "ref": "insert_order",
+      "params": {
+        "driver": "sqlite",
+        "connectionString": "{{ vars.dbFile }}",
+        "statement": "INSERT INTO orders (id, customer, status, amount) VALUES (:id, :customer, :status, :amount)",
+        "queryParams": "{{ loop.item }}"
+      }
+    },
+    {
+      "id": "n6",
+      "type": "database_query",
+      "ref": "pending_orders",
+      "params": {
+        "driver": "sqlite",
+        "connectionString": "{{ vars.dbFile }}",
+        "query": "SELECT customer, amount FROM orders WHERE status = :status ORDER BY amount DESC",
+        "queryParams": "{\"status\": \"pending\"}"
+      }
+    },
+    {
+      "id": "n7",
+      "type": "write_file",
+      "ref": "write_summary",
+      "params": {
+        "path": "{{ vars.outFile }}",
+        "content": "Seeded {{ steps.seed_loop.iterations }} orders into {{ vars.dbFile }}.\n\nPending orders (highest amount first):\n{{ steps.pending_orders.rows }}\n\n{{ steps.pending_orders.count }} pending order(s) totalling this run.\n"
+      }
+    },
+    {
+      "id": "n8",
+      "type": "show_notification",
+      "ref": "notify_1",
+      "params": {
+        "title": "Database demo complete",
+        "message": "{{ steps.pending_orders.count }} pending orders written to {{ vars.outFile }}",
+        "timeoutSec": 4
+      }
+    },
+    { "id": "n9", "type": "end", "ref": "end_1", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n4" },
+    { "sourceId": "n4", "targetId": "n5", "label": "body" },
+    { "sourceId": "n5", "targetId": "n4" },
+    { "sourceId": "n4", "targetId": "n6", "label": "done" },
+    { "sourceId": "n6", "targetId": "n7" },
+    { "sourceId": "n7", "targetId": "n8" },
+    { "sourceId": "n8", "targetId": "n9" }
+  ]
+}

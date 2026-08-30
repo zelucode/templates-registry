@@ -1,0 +1,37 @@
+{
+  "version": 3,
+  "name": "Example: Variables & Conditions",
+  "description": "Shows globals/vars/inputs interpolation and an expression-based Condition branch. Safe to Run.",
+  "tags": ["Example", "Variables", "Conditions"],
+  "globals": { "greeting": "hello" },
+  "variables": { "name": "world" },
+  "inputs": { "suffix": "!" },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    { "id": "n2", "type": "condition", "ref": "cond_os", "params": { "rule": "system.platform == \"windows\"" } },
+    {
+      "id": "n3",
+      "type": "run_command",
+      "ref": "cmd_1",
+      "params": { "command": "cmd /c echo {{ globals.greeting }}-{{ vars.name }}{{ inputs.suffix }}" }
+    },
+    {
+      "id": "n4",
+      "type": "run_command",
+      "ref": "cmd_1",
+      "params": { "command": "echo {{ globals.greeting }}-{{ vars.name }}{{ inputs.suffix }}" }
+    },
+    { "id": "n5", "type": "condition", "ref": "cond_1", "params": { "rule": "steps.cmd_1.exit_code == 0" } },
+    { "id": "n6", "type": "end", "ref": "end_ok", "params": {} },
+    { "id": "n7", "type": "end", "ref": "end_fail", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3", "label": "yes" },
+    { "sourceId": "n2", "targetId": "n4", "label": "no" },
+    { "sourceId": "n3", "targetId": "n5" },
+    { "sourceId": "n4", "targetId": "n5" },
+    { "sourceId": "n5", "targetId": "n6", "label": "yes" },
+    { "sourceId": "n5", "targetId": "n7", "label": "no" }
+  ]
+}

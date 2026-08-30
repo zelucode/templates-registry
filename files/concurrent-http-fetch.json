@@ -1,0 +1,75 @@
+{
+  "version": 3,
+  "name": "Example: Concurrent HTTP Fetch (Loop node)",
+  "description": "Demonstrates the v8 Loop node's Concurrency field: fetches several public GitHub user profiles (no auth needed) with up to 3 requests in flight at once instead of one at a time. Change Concurrency back to 1 on the loop node and compare the run's total duration in the Run Audit view -- the node count is identical, only the wall-clock time changes. Hits a real public API (api.github.com); safe to Run, but needs internet access and is subject to GitHub's unauthenticated rate limit if run very repeatedly.",
+  "tags": ["Example", "HTTP", "Loop", "API"],
+  "variables": {
+    "usernames": ["torvalds", "gvanrossum", "octocat", "yyx990803", "sindresorhus", "tj"],
+    "outFile": "./pillar4_concurrent_fetch_output.csv"
+  },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    {
+      "id": "n2",
+      "type": "delete_file",
+      "ref": "clear_output",
+      "params": { "path": "{{ vars.outFile }}", "recursive": false }
+    },
+    {
+      "id": "n3",
+      "type": "loop",
+      "ref": "fetch_loop",
+      "params": {
+        "loopType": "forEach",
+        "itemsExpr": "{{ vars.usernames }}",
+        "concurrency": 3
+      }
+    },
+    {
+      "id": "n4",
+      "type": "http_request",
+      "ref": "fetch_user",
+      "params": {
+        "method": "GET",
+        "url": "https://api.github.com/users/{{ loop.item }}",
+        "headers": "{\"Accept\": \"application/vnd.github+json\", \"User-Agent\": \"automation-os-example\"}",
+        "body": "",
+        "timeoutSec": 30,
+        "authType": "none",
+        "authUser": "",
+        "authPass": "",
+        "bearerToken": ""
+      }
+    },
+    {
+      "id": "n5",
+      "type": "append_to_csv",
+      "ref": "log_user",
+      "params": {
+        "filePath": "{{ vars.outFile }}",
+        "row": "{\"username\": \"{{ loop.item }}\", \"name\": \"{{ steps.fetch_user.body.name }}\", \"followers\": \"{{ steps.fetch_user.body.followers }}\", \"httpStatus\": \"{{ steps.fetch_user.status }}\"}",
+        "createIfMissing": true
+      }
+    },
+    {
+      "id": "n6",
+      "type": "show_notification",
+      "ref": "notify_1",
+      "params": {
+        "title": "Concurrent fetch complete",
+        "message": "Fetched {{ steps.fetch_loop.iterations }} GitHub profiles at concurrency 3 -- see {{ vars.outFile }}",
+        "timeoutSec": 4
+      }
+    },
+    { "id": "n7", "type": "end", "ref": "end_1", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n4", "label": "body" },
+    { "sourceId": "n4", "targetId": "n5" },
+    { "sourceId": "n5", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n6", "label": "done" },
+    { "sourceId": "n6", "targetId": "n7" }
+  ]
+}

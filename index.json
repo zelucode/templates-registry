@@ -1,0 +1,50 @@
+{
+  "templates": {
+    "concurrent-http-fetch": {
+      "id": "concurrent-http-fetch",
+      "name": "Concurrent HTTP Fetch (Loop node)",
+      "author": "Automation OS",
+      "description": "Demonstrates the Loop node's Concurrency field: fetches several public GitHub user profiles with up to 3 requests in flight at once instead of one at a time. Needs internet access.",
+      "category": "HTTP & APIs",
+      "tags": [
+        "Example",
+        "HTTP",
+        "Loop",
+        "API"
+      ],
+      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/concurrent-http-fetch.json",
+      "sha256": "0bda21152f2c6b88c5f60568a579ae8ec91a998af99096a9d0ab6441041f5017",
+      "verified": true
+    },
+    "hello-variables": {
+      "id": "hello-variables",
+      "name": "Variables & Conditions",
+      "author": "Automation OS",
+      "description": "Shows globals/vars/inputs interpolation and an expression-based Condition branch. Fully offline and safe to run.",
+      "category": "Getting Started",
+      "tags": [
+        "Example",
+        "Variables",
+        "Conditions"
+      ],
+      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/hello-variables.json",
+      "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
+      "verified": true
+    },
+    "sqlite-database-basics": {
+      "id": "sqlite-database-basics",
+      "name": "Database Basics (SQLite create/insert/query)",
+      "author": "Automation OS",
+      "description": "Creates a local SQLite table, seeds it with rows from a loop, queries it back with a parameterized WHERE clause, and writes a summary. Fully offline and safe to run repeatedly.",
+      "category": "Database",
+      "tags": [
+        "Example",
+        "Database",
+        "Loop"
+      ],
+      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/sqlite-database-basics.json",
+      "sha256": "821e582b185703c78cd1be68f74f94c72c9a2dab0ecafd887a02019c88d4f07f",
+      "verified": true
+    }
+  }
+}
