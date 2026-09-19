@@ -1,0 +1,4 @@
+# Payloads are hashed byte-for-byte (sha256 in index.json), so git must never rewrite their line endings.
+files/** -text
+index.json text eol=lf
+templates/*.json text eol=lf

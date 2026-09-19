@@ -13,7 +13,7 @@
         "API"
       ],
       "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/concurrent-http-fetch.json",
-      "sha256": "0bda21152f2c6b88c5f60568a579ae8ec91a998af99096a9d0ab6441041f5017",
+      "sha256": "e2619aae458296308cba83a0d07d4585481eb5c4e718d6b3c114958080095e1f",
       "verified": true
     },
     "hello-variables": {
@@ -43,7 +43,7 @@
         "Loop"
       ],
       "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/sqlite-database-basics.json",
-      "sha256": "821e582b185703c78cd1be68f74f94c72c9a2dab0ecafd887a02019c88d4f07f",
+      "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
       "verified": true
     }
   }
