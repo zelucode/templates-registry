@@ -5,7 +5,7 @@
   "description": "Demonstrates the Loop node's Concurrency field: fetches several public GitHub user profiles with up to 3 requests in flight at once instead of one at a time. Needs internet access.",
   "category": "HTTP & APIs",
   "tags": ["Example", "HTTP", "Loop", "API"],
-  "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/concurrent-http-fetch.json",
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/concurrent-http-fetch.json",
   "sha256": "e2619aae458296308cba83a0d07d4585481eb5c4e718d6b3c114958080095e1f",
   "verified": true
 }

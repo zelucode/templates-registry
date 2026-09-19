@@ -5,7 +5,7 @@
   "description": "Shows globals/vars/inputs interpolation and an expression-based Condition branch. Fully offline and safe to run.",
   "category": "Getting Started",
   "tags": ["Example", "Variables", "Conditions"],
-  "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/hello-variables.json",
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/hello-variables.json",
   "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
   "verified": true
 }

@@ -12,7 +12,7 @@
         "Loop",
         "API"
       ],
-      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/concurrent-http-fetch.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/concurrent-http-fetch.json",
       "sha256": "e2619aae458296308cba83a0d07d4585481eb5c4e718d6b3c114958080095e1f",
       "verified": true
     },
@@ -27,7 +27,7 @@
         "Variables",
         "Conditions"
       ],
-      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/hello-variables.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/hello-variables.json",
       "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
       "verified": true
     },
@@ -42,7 +42,7 @@
         "Database",
         "Loop"
       ],
-      "downloadUrl": "http://localhost:3000/haroonabbasi/templates-registry/raw/branch/main/files/sqlite-database-basics.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/sqlite-database-basics.json",
       "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
       "verified": true
     }
