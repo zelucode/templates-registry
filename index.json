@@ -48,9 +48,9 @@
     },
     "wikipedia-search": {
       "id": "wikipedia-search",
-      "name": "Wikipedia Search (Browser)",
+      "name": "Wikipedia Search",
       "author": "Automation OS",
-      "description": "Opens Wikipedia, searches for \"automation\", opens the article and follows a link from it. A short browser-automation demo. Needs internet access.",
+      "description": "Opens Wikipedia, searches for \"automation\", opens the article and reads its title. A short browser-automation demo. Needs internet access.",
       "category": "Browser",
       "tags": [
         "Example",
@@ -58,7 +58,7 @@
         "Web"
       ],
       "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/wikipedia-search.json",
-      "sha256": "e5be91fd21e71130d148e9f357d7198d63a9326f6b72fc89b8864f872c9853ae",
+      "sha256": "3f2f8260c70905e616e0788415232f1dbec9360f3adc20ba356c4307a9364e09",
       "verified": true
     }
   }

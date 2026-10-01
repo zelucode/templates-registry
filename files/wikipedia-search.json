@@ -1,7 +1,7 @@
 {
   "version": 3,
   "name": "Wikipedia Search",
-  "description": "Opens Wikipedia, searches for \"automation\", opens the article and follows a link from it. A short browser-automation demo that needs internet access.",
+  "description": "Opens Wikipedia, searches for \"automation\", opens the article and reads its title. A short browser-automation demo. Needs internet access.",
   "tags": [
     "Example",
     "Browser",
@@ -28,11 +28,11 @@
     },
     {
       "id": "n3",
-      "type": "browser_open_url",
-      "ref": "browser_open_url_3",
+      "type": "browser_click",
+      "ref": "browser_click_3",
       "params": {
-        "newTab": false,
-        "url": "https://www.wikipedia.org/"
+        "selector": "#js-link-box-en",
+        "timeoutSec": 30
       }
     },
     {
@@ -40,51 +40,40 @@
       "type": "browser_click",
       "ref": "browser_click_4",
       "params": {
-        "selector": "aria/English 7,189,000+ articles\ndiv.lang1 strong\nxpath=//*[@id=\"js-link-box-en\"]/strong\npierce/div.lang1 strong",
+        "selector": "#searchInput",
         "timeoutSec": 30
       }
     },
     {
       "id": "n5",
-      "type": "browser_click",
-      "ref": "browser_click_5",
-      "params": {
-        "selector": "aria/Search Wikipedia\n#searchInput\nxpath=//*[@id=\"searchInput\"]\npierce/#searchInput",
-        "timeoutSec": 30
-      }
-    },
-    {
-      "id": "n6",
       "type": "browser_type",
-      "ref": "browser_type_6",
+      "ref": "browser_type_5",
       "params": {
         "clearFirst": true,
-        "selector": "aria/Search Wikipedia\n#searchform > div input\nxpath=//*[@id=\"searchform\"]/div/div/div[1]/input\npierce/#searchform > div input",
+        "selector": "#searchInput",
         "text": "automation"
       }
     },
     {
-      "id": "n7",
-      "type": "browser_click",
-      "ref": "browser_click_7",
+      "id": "n6",
+      "type": "browser_key_press",
+      "ref": "browser_key_press_6",
       "params": {
-        "selector": "#v-1-23 span.cdx-menu-item__text\nxpath=//*[@id=\"v-1-23\"]/a/span[2]\npierce/#v-1-23 span.cdx-menu-item__text\ntext=AutomationUse",
-        "timeoutSec": 30
+        "key": "Enter"
+      }
+    },
+    {
+      "id": "n7",
+      "type": "browser_extract_text",
+      "ref": "browser_extract_text_7",
+      "params": {
+        "selector": "#firstHeading"
       }
     },
     {
       "id": "n8",
-      "type": "browser_click",
-      "ref": "browser_click_8",
-      "params": {
-        "selector": "aria/paradox\n#mwAco\nxpath=//*[@id=\"mwAco\"]\npierce/#mwAco",
-        "timeoutSec": 30
-      }
-    },
-    {
-      "id": "n9",
       "type": "end",
-      "ref": "end_9",
+      "ref": "end_8",
       "params": {}
     }
   ],
@@ -116,10 +105,6 @@
     {
       "sourceId": "n7",
       "targetId": "n8"
-    },
-    {
-      "sourceId": "n8",
-      "targetId": "n9"
     }
   ]
 }
