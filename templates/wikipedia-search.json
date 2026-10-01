@@ -1,0 +1,11 @@
+{
+  "id": "wikipedia-search",
+  "name": "Wikipedia Search (Browser)",
+  "author": "Automation OS",
+  "description": "Opens Wikipedia, searches for a term, opens the matching article and reads its title. A short browser-automation demo. Needs internet access.",
+  "category": "Browser",
+  "tags": ["Example", "Browser", "Web"],
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/wikipedia-search.json",
+  "sha256": "5573b682c899651575c95e30c7e304d75869d461732b1c2beb8aed12b2f912d3",
+  "verified": true
+}

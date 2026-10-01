@@ -1,0 +1,51 @@
+{
+  "version": 3,
+  "name": "Wikipedia Search",
+  "description": "Opens Wikipedia, searches for a term and opens the matching article, then reads the article title. A short browser-automation demo that needs internet access.",
+  "tags": ["Example", "Browser", "Web"],
+  "browserSession": { "captureFinalScreenshot": true },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    {
+      "id": "n2",
+      "type": "browser_open_url",
+      "ref": "open_1",
+      "params": { "url": "https://www.wikipedia.org/", "newTab": false }
+    },
+    {
+      "id": "n3",
+      "type": "browser_click",
+      "ref": "click_lang",
+      "params": { "selector": "#js-link-box-en", "timeoutSec": 30 }
+    },
+    {
+      "id": "n4",
+      "type": "browser_click",
+      "ref": "click_search",
+      "params": { "selector": "#searchInput", "timeoutSec": 30 }
+    },
+    {
+      "id": "n5",
+      "type": "browser_type",
+      "ref": "type_term",
+      "params": { "selector": "#searchInput", "text": "automation", "clearFirst": true }
+    },
+    { "id": "n6", "type": "browser_key_press", "ref": "press_enter", "params": { "key": "Enter" } },
+    {
+      "id": "n7",
+      "type": "browser_extract_text",
+      "ref": "read_title",
+      "params": { "selector": "#firstHeading" }
+    },
+    { "id": "n8", "type": "end", "ref": "end_1", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n4" },
+    { "sourceId": "n4", "targetId": "n5" },
+    { "sourceId": "n5", "targetId": "n6" },
+    { "sourceId": "n6", "targetId": "n7" },
+    { "sourceId": "n7", "targetId": "n8" }
+  ]
+}
