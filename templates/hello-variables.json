@@ -1,7 +1,7 @@
 {
   "id": "hello-variables",
   "name": "Variables & Conditions",
-  "author": "Automation OS",
+  "author": "DeskStride",
   "description": "Shows globals/vars/inputs interpolation and an expression-based Condition branch. Fully offline and safe to run.",
   "category": "Getting Started",
   "tags": ["Example", "Variables", "Conditions"],

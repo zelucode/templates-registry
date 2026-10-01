@@ -1,7 +1,7 @@
 {
   "id": "sqlite-database-basics",
   "name": "Database Basics (SQLite create/insert/query)",
-  "author": "Automation OS",
+  "author": "DeskStride",
   "description": "Creates a local SQLite table, seeds it with rows from a loop, queries it back with a parameterized WHERE clause, and writes a summary. Fully offline and safe to run repeatedly.",
   "category": "Database",
   "tags": ["Example", "Database", "Loop"],

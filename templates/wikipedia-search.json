@@ -1,7 +1,7 @@
 {
   "id": "wikipedia-search",
   "name": "Wikipedia Search",
-  "author": "Automation OS",
+  "author": "DeskStride",
   "description": "Opens Wikipedia, searches for \"automation\", opens the article and reads its title. A short browser-automation demo. Needs internet access.",
   "category": "Browser",
   "tags": [

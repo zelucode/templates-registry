@@ -32,7 +32,7 @@
       "params": {
         "method": "GET",
         "url": "https://api.github.com/users/{{ loop.item }}",
-        "headers": "{\"Accept\": \"application/vnd.github+json\", \"User-Agent\": \"automation-os-example\"}",
+        "headers": "{\"Accept\": \"application/vnd.github+json\", \"User-Agent\": \"deskstride-example\"}",
         "body": "",
         "timeoutSec": 30,
         "authType": "none",
