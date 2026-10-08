@@ -9,6 +9,20 @@
     "Browser",
     "Web"
   ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "attended": false,
+  "requiresInternet": true,
+  "nodeTypes": [
+    "browser_click",
+    "browser_extract_text",
+    "browser_key_press",
+    "browser_open_url",
+    "browser_type"
+  ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/wikipedia-search.json",
   "sha256": "3f2f8260c70905e616e0788415232f1dbec9360f3adc20ba356c4307a9364e09",
   "verified": true

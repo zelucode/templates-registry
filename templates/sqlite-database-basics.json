@@ -4,7 +4,25 @@
   "author": "DeskStride",
   "description": "Creates a local SQLite table, seeds it with rows from a loop, queries it back with a parameterized WHERE clause, and writes a summary. Fully offline and safe to run repeatedly.",
   "category": "Database",
-  "tags": ["Example", "Database", "Loop"],
+  "tags": [
+    "Example",
+    "Database",
+    "Loop"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
+  "attended": false,
+  "requiresInternet": false,
+  "nodeTypes": [
+    "database_execute",
+    "database_query",
+    "loop",
+    "show_notification",
+    "write_file"
+  ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/sqlite-database-basics.json",
   "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
   "verified": true

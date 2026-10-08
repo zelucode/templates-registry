@@ -43,6 +43,20 @@
         "Loop",
         "API"
       ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "attended": false,
+      "requiresInternet": true,
+      "nodeTypes": [
+        "append_to_csv",
+        "delete_file",
+        "http_request",
+        "loop",
+        "show_notification"
+      ],
       "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/concurrent-http-fetch.json",
       "sha256": "fcf2ca6e3b84601def514eab8af83b753569f3c3455bb5dd0edbc3408dbba8ac",
       "verified": true
@@ -57,6 +71,17 @@
         "Example",
         "Variables",
         "Conditions"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "attended": false,
+      "requiresInternet": false,
+      "nodeTypes": [
+        "condition",
+        "run_command"
       ],
       "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/hello-variables.json",
       "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
@@ -104,6 +129,20 @@
         "Database",
         "Loop"
       ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "attended": false,
+      "requiresInternet": false,
+      "nodeTypes": [
+        "database_execute",
+        "database_query",
+        "loop",
+        "show_notification",
+        "write_file"
+      ],
       "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/sqlite-database-basics.json",
       "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
       "verified": true
@@ -118,6 +157,20 @@
         "Example",
         "Browser",
         "Web"
+      ],
+      "platforms": [
+        "windows",
+        "macos",
+        "linux"
+      ],
+      "attended": false,
+      "requiresInternet": true,
+      "nodeTypes": [
+        "browser_click",
+        "browser_extract_text",
+        "browser_key_press",
+        "browser_open_url",
+        "browser_type"
       ],
       "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/wikipedia-search.json",
       "sha256": "3f2f8260c70905e616e0788415232f1dbec9360f3adc20ba356c4307a9364e09",

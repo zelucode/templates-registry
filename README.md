@@ -28,11 +28,21 @@ An entry in `templates/<id>.json` follows this shape:
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/<id>.json",
   "sha256": "sha256 of the exact bytes at downloadUrl, lowercase hex",
   "minAppVersion": "0.14.0",
+  "platforms": ["windows", "macos", "linux"],
+  "attended": false,
+  "requiresInternet": false,
+  "nodeTypes": ["condition", "run_command"],
   "verified": true,
   "revoked": false,
   "revokedReason": null
 }
 ```
+
+`platforms`, `attended`, `requiresInternet`, `nodeTypes` (and `requiresExtensions`) are optional
+and tell DeskStride what a template needs: an entry that needs a newer app (`minAppVersion`) or another
+OS (`platforms`) is hidden from, and refused for, people it can't work for. An omitted field means "not
+declared", so only fill what you have checked. Derive `nodeTypes` from the workflow file and `platforms`
+from the node platform matrix; see DeskStride's template docs ("Entry metadata").
 
 `downloadUrl` must point at the exact bytes hashed into `sha256` — the app
 hard-fails the install if they don't match, no override. A template is a
