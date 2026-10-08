@@ -1,0 +1,64 @@
+{
+  "version": 3,
+  "name": "Invoice Review Form (Ask User)",
+  "description": "Pauses on a review form: shows the invoice details, lets the reviewer confirm the amount, pick a payment method and mark it urgent, then Approve or Reject (a reason is required to reject). Replace the sample variables with values from earlier steps, such as a document extraction, to use it on real invoices.",
+  "tags": ["Example", "Approval", "Ask User", "Form"],
+  "variables": { "invoiceNumber": "INV-1042", "payee": "ACME Supplies", "amount": "4210.00", "dueDate": "2026-10-30" },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    {
+      "id": "n2",
+      "type": "ask_user",
+      "ref": "review_invoice",
+      "params": {
+        "prompt": "Review invoice {{ vars.invoiceNumber }} before payment.",
+        "inputType": "form",
+        "reviewRows": [
+          { "label": "Invoice", "value": "{{ vars.invoiceNumber }}" },
+          { "label": "Payee", "value": "{{ vars.payee }}" },
+          { "label": "Amount", "value": "{{ vars.amount }}" },
+          { "label": "Due date", "value": "{{ vars.dueDate }}" }
+        ],
+        "inputRows": [
+          { "name": "approvedAmount", "label": "Approved amount", "kind": "number", "required": true, "default": "{{ vars.amount }}" },
+          { "name": "paymentMethod", "label": "Payment method", "kind": "select", "required": true, "options": "Bank transfer, Check, Card" },
+          { "name": "urgent", "label": "Mark as urgent", "kind": "checkbox", "required": false }
+        ],
+        "requireReason": true,
+        "timeoutSec": 300,
+        "allowUnattended": false
+      }
+    },
+    { "id": "n3", "type": "condition", "ref": "cond_approved", "params": { "rule": "steps.review_invoice.approved == True" } },
+    {
+      "id": "n4",
+      "type": "show_notification",
+      "ref": "notify_approved",
+      "params": {
+        "title": "Invoice approved",
+        "message": "{{ vars.invoiceNumber }}: pay {{ steps.review_invoice.values.approvedAmount }} by {{ steps.review_invoice.values.paymentMethod }}. The payment step would run here.",
+        "timeoutSec": 5
+      }
+    },
+    {
+      "id": "n5",
+      "type": "show_notification",
+      "ref": "notify_rejected",
+      "params": {
+        "title": "Invoice rejected",
+        "message": "{{ vars.invoiceNumber }} rejected: {{ steps.review_invoice.comment }}",
+        "timeoutSec": 5
+      }
+    },
+    { "id": "n6", "type": "end", "ref": "end_approved", "params": {} },
+    { "id": "n7", "type": "end", "ref": "end_rejected", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n4", "label": "yes" },
+    { "sourceId": "n3", "targetId": "n5", "label": "no" },
+    { "sourceId": "n4", "targetId": "n6" },
+    { "sourceId": "n5", "targetId": "n7" }
+  ]
+}

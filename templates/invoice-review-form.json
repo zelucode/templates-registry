@@ -1,0 +1,18 @@
+{
+  "id": "invoice-review-form",
+  "name": "Invoice Review Form (Ask User)",
+  "author": "DeskStride",
+  "description": "Pauses on a review form: shows invoice details, lets the reviewer confirm the amount, pick a payment method and mark it urgent, then Approve or Reject (a reason is required to reject). Fully offline and safe to run.",
+  "category": "Human in the Loop",
+  "tags": ["Example", "Approval", "Ask User", "Form"],
+  "platforms": ["windows", "macos", "linux"],
+  "attended": true,
+  "requiresInternet": false,
+  "nodeTypes": ["ask_user", "condition", "show_notification"],
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/invoice-review-form.json",
+  "sha256": "665d25ec140a74b3613f0b4a33b6a3238ada208cc6f0df02d6489321716e2223",
+  "minAppVersion": "1.0.2",
+  "verified": true,
+  "revoked": false,
+  "revokedReason": null
+}
