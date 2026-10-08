@@ -24,7 +24,7 @@
         "condition",
         "show_notification"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/approval-gate-ask-user.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/approval-gate-ask-user/workflow.json",
       "sha256": "da45a3e623093c7a8d97fccd95af053da50f7db46c641b63c56a391f0132bc57",
       "minAppVersion": "1.0.1",
       "verified": true,
@@ -57,7 +57,7 @@
         "loop",
         "show_notification"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/concurrent-http-fetch.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/concurrent-http-fetch/workflow.json",
       "sha256": "fcf2ca6e3b84601def514eab8af83b753569f3c3455bb5dd0edbc3408dbba8ac",
       "verified": true
     },
@@ -83,7 +83,7 @@
         "condition",
         "run_command"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/hello-variables.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/hello-variables/workflow.json",
       "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
       "verified": true
     },
@@ -111,7 +111,7 @@
         "condition",
         "show_notification"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/invoice-review-form.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/invoice-review-form/workflow.json",
       "sha256": "665d25ec140a74b3613f0b4a33b6a3238ada208cc6f0df02d6489321716e2223",
       "minAppVersion": "1.0.2",
       "verified": true,
@@ -143,10 +143,10 @@
         "wait_for_window",
         "write_file"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/n8n-orders-to-desktop-app.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/n8n-orders-to-desktop-app/workflow.json",
       "sha256": "030c5a8f38b815e5b080b01630b5305f36790b500dd112db637dda8c8848829c",
       "minAppVersion": "1.0.2",
-      "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/readmes/n8n-orders-to-desktop-app/README.md"
+      "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/n8n-orders-to-desktop-app/README.md"
     },
     "sqlite-database-basics": {
       "id": "sqlite-database-basics",
@@ -173,7 +173,7 @@
         "show_notification",
         "write_file"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/sqlite-database-basics.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/sqlite-database-basics/workflow.json",
       "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
       "verified": true
     },
@@ -202,7 +202,7 @@
         "browser_open_url",
         "browser_type"
       ],
-      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/wikipedia-search.json",
+      "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/wikipedia-search/workflow.json",
       "sha256": "3f2f8260c70905e616e0788415232f1dbec9360f3adc20ba356c4307a9364e09",
       "verified": true
     }

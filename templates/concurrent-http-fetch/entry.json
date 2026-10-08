@@ -24,7 +24,7 @@
     "loop",
     "show_notification"
   ],
-  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/concurrent-http-fetch.json",
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/concurrent-http-fetch/workflow.json",
   "sha256": "fcf2ca6e3b84601def514eab8af83b753569f3c3455bb5dd0edbc3408dbba8ac",
   "verified": true
 }

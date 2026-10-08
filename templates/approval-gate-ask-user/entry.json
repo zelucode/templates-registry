@@ -4,12 +4,25 @@
   "author": "DeskStride",
   "description": "Pauses before a consequential step and asks a person to approve it. Approved shows a confirmation; rejected asks for a reason first. Run it manually from the app. Fully offline and safe to run.",
   "category": "Human in the Loop",
-  "tags": ["Example", "Approval", "Ask User", "Conditions"],
-  "platforms": ["windows", "macos", "linux"],
+  "tags": [
+    "Example",
+    "Approval",
+    "Ask User",
+    "Conditions"
+  ],
+  "platforms": [
+    "windows",
+    "macos",
+    "linux"
+  ],
   "attended": true,
   "requiresInternet": false,
-  "nodeTypes": ["ask_user", "condition", "show_notification"],
-  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/approval-gate-ask-user.json",
+  "nodeTypes": [
+    "ask_user",
+    "condition",
+    "show_notification"
+  ],
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/approval-gate-ask-user/workflow.json",
   "sha256": "da45a3e623093c7a8d97fccd95af053da50f7db46c641b63c56a391f0132bc57",
   "minAppVersion": "1.0.1",
   "verified": true,

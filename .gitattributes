@@ -1,4 +1,5 @@
 # Payloads are hashed byte-for-byte (sha256 in index.json), so git must never rewrite their line endings.
-files/** -text
+templates/*/workflow.json -text
 index.json text eol=lf
-templates/*.json text eol=lf
+templates/*/entry.json text eol=lf
+templates/*/README.md text eol=lf

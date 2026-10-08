@@ -20,7 +20,7 @@
     "condition",
     "run_command"
   ],
-  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/hello-variables.json",
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/hello-variables/workflow.json",
   "sha256": "39009229c9d251a764307d7a69ec89518f641549ffbbddaba92697e9fa3ffa07",
   "verified": true
 }
