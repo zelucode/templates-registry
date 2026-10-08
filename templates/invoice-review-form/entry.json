@@ -23,6 +23,7 @@
     "show_notification"
   ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/invoice-review-form/workflow.json",
+  "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/invoice-review-form/README.md",
   "sha256": "665d25ec140a74b3613f0b4a33b6a3238ada208cc6f0df02d6489321716e2223",
   "minAppVersion": "1.0.2",
   "verified": true,

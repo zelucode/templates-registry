@@ -24,6 +24,7 @@
     "write_file"
   ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/sqlite-database-basics/workflow.json",
+  "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/sqlite-database-basics/README.md",
   "sha256": "74a2d8ef1b4b89c08640f4ea13e19fa78ca674ef628ca2088a4b586e24a8665b",
   "verified": true
 }

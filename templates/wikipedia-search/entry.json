@@ -24,6 +24,7 @@
     "browser_type"
   ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/wikipedia-search/workflow.json",
+  "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/wikipedia-search/README.md",
   "sha256": "3f2f8260c70905e616e0788415232f1dbec9360f3adc20ba356c4307a9364e09",
   "verified": true
 }

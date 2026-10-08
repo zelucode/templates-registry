@@ -23,6 +23,7 @@
     "show_notification"
   ],
   "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/approval-gate-ask-user/workflow.json",
+  "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/templates/approval-gate-ask-user/README.md",
   "sha256": "da45a3e623093c7a8d97fccd95af053da50f7db46c641b63c56a391f0132bc57",
   "minAppVersion": "1.0.1",
   "verified": true,
