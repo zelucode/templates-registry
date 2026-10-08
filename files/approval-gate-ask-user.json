@@ -1,0 +1,64 @@
+{
+  "version": 3,
+  "name": "Approval Gate (Ask User)",
+  "description": "Pauses before a consequential step and asks a person to approve it. Approved: shows a confirmation. Rejected: asks for a reason, then shows it. Run it manually from the app; scheduled and remote runs stop at the prompt unless Allow Unattended is on.",
+  "tags": ["Example", "Approval", "Ask User", "Conditions"],
+  "variables": { "invoiceNumber": "INV-1042", "amount": "4,210.00", "payee": "ACME Supplies" },
+  "nodes": [
+    { "id": "n1", "type": "start", "ref": "start_1", "params": {} },
+    {
+      "id": "n2",
+      "type": "ask_user",
+      "ref": "ask_approval",
+      "params": {
+        "prompt": "Approve payment of {{ vars.amount }} to {{ vars.payee }} for invoice {{ vars.invoiceNumber }}?",
+        "inputType": "confirm",
+        "timeoutSec": 120,
+        "allowUnattended": false
+      }
+    },
+    { "id": "n3", "type": "condition", "ref": "cond_approved", "params": { "rule": "steps.ask_approval.confirmed == True" } },
+    {
+      "id": "n4",
+      "type": "show_notification",
+      "ref": "notify_approved",
+      "params": {
+        "title": "Payment approved",
+        "message": "{{ vars.invoiceNumber }} approved. The payment step would run here.",
+        "timeoutSec": 5
+      }
+    },
+    {
+      "id": "n5",
+      "type": "ask_user",
+      "ref": "ask_reason",
+      "params": {
+        "prompt": "Why was {{ vars.invoiceNumber }} rejected? (optional, cancel to skip)",
+        "inputType": "text",
+        "timeoutSec": 120,
+        "allowUnattended": false
+      }
+    },
+    {
+      "id": "n6",
+      "type": "show_notification",
+      "ref": "notify_rejected",
+      "params": {
+        "title": "Payment rejected",
+        "message": "{{ vars.invoiceNumber }} rejected. Reason: {{ steps.ask_reason.answer }}",
+        "timeoutSec": 5
+      }
+    },
+    { "id": "n7", "type": "end", "ref": "end_approved", "params": {} },
+    { "id": "n8", "type": "end", "ref": "end_rejected", "params": {} }
+  ],
+  "edges": [
+    { "sourceId": "n1", "targetId": "n2" },
+    { "sourceId": "n2", "targetId": "n3" },
+    { "sourceId": "n3", "targetId": "n4", "label": "yes" },
+    { "sourceId": "n3", "targetId": "n5", "label": "no" },
+    { "sourceId": "n4", "targetId": "n7" },
+    { "sourceId": "n5", "targetId": "n6" },
+    { "sourceId": "n6", "targetId": "n8" }
+  ]
+}
