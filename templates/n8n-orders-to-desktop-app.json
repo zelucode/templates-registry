@@ -1,0 +1,30 @@
+{
+  "id": "n8n-orders-to-desktop-app",
+  "name": "n8n Orders to a Desktop App",
+  "author": "DeskStride",
+  "description": "Receives an order from n8n through the Local API, types it into a desktop app that has no API (Notepad stands in), saves it, and lets n8n know when it is done. Needs Allow Remote Trigger on, and the Public Documents folder allowed in Workflow Settings.",
+  "category": "Integrations",
+  "tags": [
+    "Example",
+    "n8n",
+    "Local API"
+  ],
+  "platforms": [
+    "windows"
+  ],
+  "attended": true,
+  "requiresInternet": false,
+  "nodeTypes": [
+    "close_window",
+    "delay",
+    "hotkey",
+    "launch_app",
+    "type_text",
+    "wait_for_window",
+    "write_file"
+  ],
+  "downloadUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/files/n8n-orders-to-desktop-app.json",
+  "sha256": "030c5a8f38b815e5b080b01630b5305f36790b500dd112db637dda8c8848829c",
+  "minAppVersion": "1.0.2",
+  "readmeUrl": "https://raw.githubusercontent.com/zelucode/templates-registry/main/readmes/n8n-orders-to-desktop-app/README.md"
+}

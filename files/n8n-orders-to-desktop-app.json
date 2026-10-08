@@ -1,0 +1,157 @@
+{
+  "version": 3,
+  "name": "n8n Demo: Enter order in desktop app",
+  "description": "Receives an order from n8n (Local API; inputs orderId/customer/amount), opens Notepad as a stand-in for a legacy app with no API, types the order in, saves and closes it. Needs C:\\Users\\Public\\Documents added to the allowed folders in Workflow Settings. Turn on Allow Remote Trigger after importing. When the run ends, n8n is notified via the callbackUrl it sent.",
+  "tags": [
+    "Example",
+    "n8n",
+    "Local API"
+  ],
+  "inputsSchema": [
+    {
+      "name": "orderId",
+      "type": "number",
+      "label": "Order ID",
+      "defaultValue": 1
+    },
+    {
+      "name": "customer",
+      "type": "string",
+      "label": "Customer",
+      "defaultValue": "Customer 1"
+    },
+    {
+      "name": "amount",
+      "type": "number",
+      "label": "Amount",
+      "defaultValue": 25
+    }
+  ],
+  "nodes": [
+    {
+      "id": "n1",
+      "type": "start",
+      "ref": "start_1",
+      "params": {}
+    },
+    {
+      "id": "n2",
+      "type": "write_file",
+      "ref": "write_file_2",
+      "params": {
+        "path": "C:\\Users\\Public\\Documents\\deskstride-order-{{ inputs.orderId }}.txt",
+        "content": "",
+        "append": false
+      }
+    },
+    {
+      "id": "n3",
+      "type": "launch_app",
+      "ref": "launch_app_3",
+      "params": {
+        "path": "notepad.exe",
+        "args": "C:\\Users\\Public\\Documents\\deskstride-order-{{ inputs.orderId }}.txt"
+      }
+    },
+    {
+      "id": "n4",
+      "type": "wait_for_window",
+      "ref": "wait_for_window_4",
+      "params": {
+        "titleContains": "deskstride-order-{{ inputs.orderId }}",
+        "timeoutSec": 15
+      }
+    },
+    {
+      "id": "n5",
+      "type": "type_text",
+      "ref": "type_text_5",
+      "params": {
+        "text": "ORDER #{{ inputs.orderId }} | {{ inputs.customer }} | ${{ inputs.amount }}",
+        "target": "{\"windowTitle\": \"deskstride-order-{{ inputs.orderId }}\"}"
+      }
+    },
+    {
+      "id": "n6",
+      "type": "delay",
+      "ref": "delay_6",
+      "params": {
+        "durationMs": 2500
+      }
+    },
+    {
+      "id": "n7",
+      "type": "hotkey",
+      "ref": "hotkey_7",
+      "params": {
+        "keyCombo": "Ctrl + S",
+        "target": "{\"windowTitle\": \"deskstride-order-{{ inputs.orderId }}\"}"
+      }
+    },
+    {
+      "id": "n8",
+      "type": "delay",
+      "ref": "delay_8",
+      "params": {
+        "durationMs": 2500
+      }
+    },
+    {
+      "id": "n9",
+      "type": "close_window",
+      "ref": "close_window_9",
+      "params": {
+        "titleContains": "deskstride-order-{{ inputs.orderId }}"
+      },
+      "retry": {
+        "count": 2,
+        "delayMs": 1500,
+        "backoff": "fixed"
+      }
+    },
+    {
+      "id": "n10",
+      "type": "end",
+      "ref": "end_10",
+      "params": {}
+    }
+  ],
+  "edges": [
+    {
+      "sourceId": "n1",
+      "targetId": "n2"
+    },
+    {
+      "sourceId": "n2",
+      "targetId": "n3"
+    },
+    {
+      "sourceId": "n3",
+      "targetId": "n4"
+    },
+    {
+      "sourceId": "n4",
+      "targetId": "n5"
+    },
+    {
+      "sourceId": "n5",
+      "targetId": "n6"
+    },
+    {
+      "sourceId": "n6",
+      "targetId": "n7"
+    },
+    {
+      "sourceId": "n7",
+      "targetId": "n8"
+    },
+    {
+      "sourceId": "n8",
+      "targetId": "n9"
+    },
+    {
+      "sourceId": "n9",
+      "targetId": "n10"
+    }
+  ]
+}
